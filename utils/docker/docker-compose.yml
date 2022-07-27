@@ -1,0 +1,65 @@
+version: "3.8"
+
+services:  
+  
+  tuiasi-mysql-server:
+    build:
+      context: ../sql/
+      dockerfile: ../sql/Dockerfile.mysql
+    image: "tuiasi-mysql-server"
+    environment:
+      MYSQL_DATABASE: tuiasidatabase
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USERNAME_1: tuiasi_web_user
+      MYSQL_USERNAME_2: tuiasi_db_user
+      MYSQL_USERPASS_1: 134679tuiasiWebUser!
+      MYSQL_USERPASS_2: 134679tuiasiDbUser!
+
+  accommodations-management-service:
+    build: ../../APIs/AccommodationsManagementService/
+    image: "accommodations-management-service"
+    ports: 
+      - 8080:8080
+    command: "java -jar app.jar"
+    environment: 
+      MYSQL_HOST: tuiasi-mysql-server
+      MYSQL_DATABASE: tuiasidatabase
+      MYSQL_USER: tuiasi_db_user
+      MYSQL_PASSWORD: 134679tuiasiDbUser!
+    depends_on:
+      - "tuiasi-mysql-server"
+
+  students-management-service:
+    build: ../../APIs/StudentsManagementService/
+    image: "students-management-service"
+    ports:
+      - 8081:8080
+    command: "java -jar app.jar"
+    environment:
+      MYSQL_HOST: tuiasi-mysql-server
+      MYSQL_DATABASE: tuiasidatabase
+      MYSQL_USER: tuiasi_db_user
+      MYSQL_PASSWORD: 134679tuiasiDbUser!
+    depends_on:
+      - "tuiasi-mysql-server"
+
+  user-access-control-service:
+    build: ../../APIs/UserAccessControlService/
+    image: "user-access-control-service"
+    ports:
+      - 8082:8080
+    command: "java -jar app.jar"
+    environment: 
+      MYSQL_HOST: tuiasi-mysql-server
+      MYSQL_DATABASE: tuiasidatabase
+      MYSQL_USER: tuiasi_db_user
+      MYSQL_PASSWORD: 134679tuiasiDbUser!
+    depends_on:
+      - "tuiasi-mysql-server"
+  
+  gateway-service:
+    build: ../../APIs/GatewayService/
+    image: "gateway-service"
+    ports:
+      - 8083:8080
+    command: "java -jar app.jar"
