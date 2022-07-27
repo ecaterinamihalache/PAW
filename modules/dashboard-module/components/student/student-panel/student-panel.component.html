@@ -1,0 +1,74 @@
+<router-outlet></router-outlet>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="profile">
+            <img src="https://www.usr.ro/wp-content/uploads/2021/01/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg" alt="profile_picture">
+            <h3>{{student.lastname}} {{student.firstname}}</h3>
+            <p>Student</p>
+        </div>
+        <ul class="nav-list">
+
+            <li>
+                <a routerLink="/dashboard/student-panel/information">
+                    <i class="fas fa-home"></i>
+                    <span class="links_name">Acasă</span>
+                    <span class="tooltip">Acasă</span>
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/dashboard/student-panel/choose-dormitory">
+                    <i class="fas fa-home-heart"></i>
+                    <span class="links_name">Alegere preferințe</span>
+                    <span class="tooltip">Alegere preferințe</span>
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/dashboard/student-panel/preferences">
+                    <i class="fas fa-heart"></i>
+                    <span class="links_name">Preferințe</span>
+                    <span class="tooltip">Preferințe</span>
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/dashboard/student-panel/status">
+                    <i class="fas fa-question"></i>
+                    <span class="links_name">Status cerere</span>
+                    <span class="tooltip">Status cerere</span>
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/dashboard/student-panel/payment">
+                    <i class="fas fa-money-bill"></i>
+                    <span class="links_name">Achitare tarif</span>
+                    <span class="tooltip">Achitare tarif</span>
+                </a>
+            </li>
+
+            <li (click)="onLogout()">
+                <a>
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="links_name">Deconectare</span>
+                    <span class="tooltip">Deconectare</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

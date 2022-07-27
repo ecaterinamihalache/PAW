@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">Achitare tarif</div>
+        <div class="content">
+            <form [formGroup]="informationForm" autocomplete="off">
+                <div class="user-details">
+
+                    <div class="input-box">
+                        <span for="userDormitory" class="details">Căminul</span>
+                        <input type="text" formControlName="userDormitory" class="form-control" readonly>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="userRoom" class="details">Camera</span>
+                        <input type="text" formControlName="userRoom" class="form-control" readonly>
+                    </div>
+
+                </div>
+                <p *ngIf="message2" class="message">Nu a fost făcut procesul de repartiție.</p>
+                <p *ngIf="message && message2==false" class="message">Tranzacție în curs de procesare.</p>
+                <button class="btn" (click)="showMessage()">Plătește</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

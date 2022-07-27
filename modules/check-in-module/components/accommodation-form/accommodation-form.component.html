@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">Cerere de cazare</div>
+        <div class="content">
+
+            <form [formGroup]="accommodationForm" (ngSubmit)="onSubmit()" autocomplete="off">
+                <div class="user-details">
+
+                    <div class="input-box">
+                        <span for="nume" class="details">Nume</span>
+                        <input type="text" name="nume" formControlName="nume" placeholder="Mihalache" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="prenume" class="details">Prenume</span>
+                        <input type="text" name="prenume" formControlName="prenume" placeholder="Nicoleta-Ecaterina" required>
+                    </div>
+
+
+                    <div class="input-box">
+                        <span for="universitate" class="details">Universitate</span>
+                        <select name="universitate" formControlName="universitate" id="universitate">
+                            <option value="">Alege o opțiune</option>
+                            <option value="TUIASI">Universitatea Tehnică "Gh. Asachi"</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-box">
+                        <span for="facultate" class="details">Facultate</span>
+                        <select name="facultate" formControlName="facultate" id="facultate">
+                        <option value="">Alege o opțiune</option>
+                        <option value="ARH">Facultatea de Arhitectură "G. M. Cantacuzino"</option>
+                        <option value="Chimie">Facultatea de Inginerie Chimică și Protecția Mediului</option>
+                        <option value="CMMI">Facultatea de Construcții de Mașini și Management Industrial</option>
+                        <option value="IEEIA">Facultatea de Inginerie Electrică, Energetică și Informatică și Informatică Aplicată</option>
+                        <option value="Mecanică">Facultatea de Mecanică</option>
+                        <option value="Textile">Facultatea de Textile, Pielărie și Management Industrial</option>
+                        <option value="AC">Facultatea de Automatică și Calculatoare</option>
+                        <option value="CI">Facultatea de Construcții și Instalații</option>
+                        <option value="ETTI">Facultatea de Electrică, Telecomunicații și Tehnologia Informației</option>
+                        <option value="Hidro">Facultatea de Hidrotehnică, Geodezie și Ingineria Mediului</option>
+                        <option value="SIM">Facultatea de Știința și Ingineria Materialelor</option>
+                    </select>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="specializare" class="details">Specializare</span>
+                        <input type="text" name="specializare" formControlName="specializare" placeholder="Ingineria Sistemelor" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="an">Anul de studii</span>
+                        <select formControlName="an" name="an" id="an">
+                        <option value="">Alege o opțiune</option>
+                        <option value="I">Anul I Licență</option>
+                        <option value="II">Anul II Licență</option>
+                        <option value="III">Anul III Licență</option>
+                        <option value="IV">Anul IV Licență</option>
+                        <option value="V">Anul V Licență</option>
+                        <option value="VI">Anul VI Licență</option>
+                        <option value="I Master">Anul I Master</option>
+                        <option value="II Master">Anul II Master</option>
+                    </select>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="nr_telefon" class="details">Număr de telefon</span>
+                        <input type="text" name="nr_telefon" formControlName="nr_telefon" placeholder="0738684148" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="email" class="details">Email</span>
+                        <input type="email" name="email" formControlName="email" placeholder="nicoleta-ecaterina.mihalache@student.tuiasi.ro" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="parola" class="details">Parola</span>
+                        <input type="password" name="parola" formControlName="parola" placeholder="*****" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="tara" class="details">Țara</span>
+                        <select name="tara" formControlName="tara" (change)="onCountryChange($event.target)">
+                            <option value="">Alege o opțiune</option>
+                            <option *ngFor="let country of countries">{{ country.name }}</option>
+                          </select>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="judet" class="details">Județ</span>
+                        <select name="judet" formControlName="judet" (change)="onCountyChange($event.target)">
+                            <option value="">Alege o opțiune</option>
+                            <option *ngFor="let county of counties">{{ county.name }}</option>
+                          </select>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="oras" class="details">Oraș</span>
+                        <select name="oras" formControlName="oras">
+                            <option value="">Alege o opțiune</option>
+                            <option *ngFor="let city of  cities ">{{ city.name }}</option>
+                        </select>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="strada" class="details">Strada</span>
+                        <input type="text" name="strada" formControlName="strada" placeholder="Gheorghe Alexa nr. 5" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span for="cod_postal" class="details">Cod poștal</span>
+                        <input type="text" name="cod_postal" formControlName="cod_postal" placeholder="700028" required>
+                    </div>
+                </div>
+
+                <button routerLink="/authentication/login" (click)="onSubmit()" class="btn">Trimite</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

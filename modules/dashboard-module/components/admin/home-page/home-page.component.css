@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900i&display=swap');
+body {
+    background: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 120px;
+    letter-spacing: 0.1em;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: Black;
+    text-shadow: 8px 8px rgb(7, 105, 185), 20px 20px #000000;
+}

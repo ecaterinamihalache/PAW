@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Informațiile contului</div>
+        <div class="content">
+            <form [formGroup]="infoForm" autocomplete="off" class="login-form">
+                <div class="user-details">
+                    <div class="input-box">
+                        <span for="userLastName" class="details">Nume</span>
+                        <input type="text" formControlName="userLastName" class="form-control" readonly>
+                        <br>
+                        <span for="userFirstName" class="details">Prenume</span>
+                        <input type="text" formControlName="userFirstName" class="form-control" readonly>
+                        <br>
+                        <span for="userPhone" class="details">Număr de telefon</span>
+                        <input type="tel" formControlName="userPhone" class="form-control" readonly>
+
+                        <br>
+                        <span for="userEmail" class="details">Email</span>
+                        <input type="email" formControlName="userEmail" class="form-control" readonly>
+                        <br>
+                        <span for="userPassword" class="details">Parola</span>
+                        <div class="form-group inner-addon right-addon">
+                            <div class="input-group mb-3">
+                                <input formControlName="userPassword" name="password" [type]="showPassword ? 'text' : 'password'" class="form-control" readonly>
+                                <div>
+                                    <i alt="show" class="far fa-eye eye-show" (click)="showPassword = !showPassword" [class.hide]="showPassword"></i>
+                                    <i alt="hide" class="far fa-eye-slash eye-hide" (click)="showPassword = !showPassword" [class.hide]="!showPassword"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

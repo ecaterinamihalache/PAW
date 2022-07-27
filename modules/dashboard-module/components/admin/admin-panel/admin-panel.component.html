@@ -1,0 +1,58 @@
+<router-outlet></router-outlet>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="profile">
+            <img src="https://www.usr.ro/wp-content/uploads/2021/01/depositphotos_39258143-stock-illustration-businessman-avatar-profile-picture.jpg" alt="profile_picture">
+            <h3>{{admin.email}}</h3>
+            <p>Administrator</p>
+        </div>
+        <ul class="nav-list">
+
+            <li>
+                <a routerLink="/dashboard/admin-panel/home">
+                    <i class="fas fa-home"></i>
+                    <span class="links_name">Acasă</span>
+                    <span class="tooltip">Acasă</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/dashboard/admin-panel/students">
+                    <i class="fas fa-user-friends"></i>
+                    <span class="links_name">Studenți</span>
+                    <span class="tooltip">Studenți</span>
+                </a>
+            </li>
+
+            <li>
+                <a routerLink="/dashboard/admin-panel/repartition">
+                    <i class="fas fa-poll-people"></i>
+                    <span class="links_name">Repartizare studenți</span>
+                    <span class="tooltip">Repartizare studenți</span>
+                </a>
+            </li>
+
+            <li (click)="onLogout()">
+                <a>
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span class="links_name">Deconectare</span>
+                    <span class="tooltip">Deconectare</span>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+    <table id="students" class="center">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nume</th>
+                <th>Prenume</th>
+                <th>Număr de telefon</th>
+                <th>Media</th>
+                <th>Universitatea</th>
+                <th>Facultatea</th>
+                <th>Specializarea</th>
+                <th>Camera</th>
+                <th>Oraș</th>
+                <th>Județul</th>
+                <th>Numele străzii</th>
+                <th>Țara</th>
+                <th>Cod poștal</th>
+                <th>Acțiune</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr *ngFor="let student of students; let i=index">
+
+                <td>{{ student.id }}</td>
+                <td>{{ student.lastname }}</td>
+                <td>{{ student.firstname }}</td>
+                <td>{{ student.phone_number }}</td>
+                <td>{{ student.year_grade }}</td>
+
+                <td>{{ studentInfo[i].university }}</td>
+                <td>{{ studentInfo[i].faculty }}</td>
+                <td>{{ studentInfo[i].specialization }}</td>
+                <td>{{ student.rooms_id }}</td>
+
+                <td>{{ studentAddresses[i].city }}</td>
+                <td>{{ studentAddresses[i].county }}</td>
+                <td>{{ studentAddresses[i].street_name }}</td>
+                <td>{{ studentAddresses[i].country }}</td>
+                <td>{{ studentAddresses[i].postal_code }}</td>
+
+                <td><button class="btn" (click)="onCheckOut(student.id)">Decazare</button></td>
+            </tr>
+
+        </tbody>
+
+    </table>
+</body>
+
+</html>
